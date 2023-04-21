@@ -4,51 +4,32 @@ namespace GameSixFriday
 {
     public class Program
     {
-        
-        public static void Main(string[] args)
+        private static void Main()
         {
-            
-            Foe test = new Foe("Test");
-            test.PickPowerUp(PowerUp.Shield, 1333);
-            Console.WriteLine(test + "\n");
+            GameLevel gl = new GameLevel(15, Difficulty.Hard);
 
-            Console.WriteLine(Foe.GetTotalPowerUpsGathered());
-            
-            int size = GetValidatedNumberFromUSer("Total of enemies: ", 
-                "Please insert a number bigger than 0", 
-                (i => i > 0 ));
-            Foe[] foes = new Foe[size];
-            for (int i = 0; i < foes.Length; i++)
-            {
-                Console.Write($"Please insert a name to Foe number {i+1}: ");
-                foes[i] = new Foe(Console.ReadLine());
-                
-            }
-            foreach (Foe foe in foes)
-                Console.WriteLine(foe.GetName());
-            
-            Console.WriteLine("Thank you for using the program!");
+            gl.SetFoeInRoom(2, new Foe("Darth Vader"));
+            gl.SetFoeInRoom(5, new Foe("Borg Queen"));
+            gl.SetFoeInRoom(11, new Foe("Thanos"));
+            gl.SetFoeInRoom(12, new Foe("Xenomorph"));
 
+            Console.WriteLine($"Difficulty: {gl.GetDifficulty()}");
+
+            Console.WriteLine($"Number of rooms: {gl.GetNumRooms()}");
+
+            Console.WriteLine($"Number of foes: {gl.GetNumFoes()}");
+
+            // gl.PrintFoes();
+
+            // Este programa mostra o seguinte no ecrã:
+            //
+            // Difficulty: Hard
+            // Number of rooms: 15
+            // Number of foes: 4
+            // Room 2: Darth Vader
+            // Room 5: Borg Queen
+            // Room 11: Thanos
+            // Room 12: Xenomorph
         }
-
-        private static int GetValidatedNumberFromUSer(string inputMsg, string errorMsg, Predicate<int> validation)
-        {
-            while (true)
-            {
-                try
-                {
-                    Console.Write(inputMsg);
-                    int num = int.Parse(Console.ReadLine());
-                    if (!validation.Invoke(num))
-                        throw new Exception();
-                    return num;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(errorMsg+"\n");
-                }
-            }
-        }
-        
     }
 }
