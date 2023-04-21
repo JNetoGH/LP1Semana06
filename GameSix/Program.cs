@@ -26,8 +26,9 @@ namespace GameSix
             }
             foreach (Foe foe in foes)
                 Console.WriteLine(foe.GetName());
+            
+            Console.WriteLine("Thank you for using the program!");
 
-            Console.WriteLine("Merci d' utiliser ce progremme!");
         }
 
         private static int GetValidatedNumberFromUSer(string inputMsg, string errorMsg, Predicate<int> validation)
