@@ -7,22 +7,13 @@ namespace GameSixFriday
     {
         private struct Room
         {
-            public bool hasFoes;
             public int adress;
             public List<Foe> foes;
             public Room(int adress) : this()
             {
-                hasFoes = false;
                 this.adress = adress;
                 foes = new List<Foe>();
             }
-
-            public void AddFoe(Foe foe)
-            {
-                foes.Add(foe);
-                hasFoes = true;
-            }
-
             public override string ToString() => $"Room {adress}: {string.Join(',', foes)}";
         }
 
@@ -42,7 +33,7 @@ namespace GameSixFriday
 
         public void SetFoeInRoom(int roomAddress, Foe foe)
         {
-            rooms[roomAddress].AddFoe(foe);
+            rooms[roomAddress].foes.Add(foe);
             totFoes += 1;
         }
 
