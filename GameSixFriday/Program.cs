@@ -19,7 +19,7 @@ namespace GameSixFriday
 
             Console.WriteLine($"Number of foes: {gl.GetNumFoes()}");
 
-            // gl.PrintFoes();
+            gl.PrintFoes();
 
             // Este programa mostra o seguinte no ecrã:
             //

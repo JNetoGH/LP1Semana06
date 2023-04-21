@@ -38,7 +38,7 @@ namespace GameSixFriday
             SetTotalPowerUpsGathered(totalPowerUpsGathered += 1);
         }
         
-        public override string ToString() => $"name: {name}, health: {health}, shield: {shield}";
+        public override string ToString() => name;
 
         public static int GetTotalPowerUpsGathered() => totalPowerUpsGathered;
         public static int SetTotalPowerUpsGathered(int value) => totalPowerUpsGathered = value;
