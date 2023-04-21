@@ -5,6 +5,8 @@ namespace GameSix
     public class Foe
     {
         
+        private static int totalPowerUpsGathered = 0;
+        
         private string name;
         private float health;
         private float shield;
@@ -33,9 +35,13 @@ namespace GameSix
                 case PowerUp.Health: health = (health + amount > 100) ? 100 : health + amount; break;
                 case PowerUp.Shield: shield = (shield + amount > 100) ? 100 : shield + amount; break;
             }
+            SetTotalPowerUpsGathered(totalPowerUpsGathered += 1);
         }
         
         public override string ToString() => $"name: {name}, health: {health}, shield: {shield}";
+
+        public static int GetTotalPowerUpsGathered() => totalPowerUpsGathered;
+        public static int SetTotalPowerUpsGathered(int value) => totalPowerUpsGathered = value;
         
         public void SetName(string newName) => name = newName.TrimEnd().TrimStart();
         public string GetName() => name;
