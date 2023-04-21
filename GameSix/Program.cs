@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Globalization;
 
 namespace GameSix
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
+            /*
+            Foe test = new Foe("Test");
+            test.PickPowerUp(PowerUp.Shield, 1333);
+            Console.WriteLine(test + "\n");
+            */
+            
             int size = GetValidatedNumberFromUSer("Total of enemies: ", 
                 "Please insert a number bigger than 0", 
                 (i => i > 0 ));
